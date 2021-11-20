@@ -1,0 +1,6 @@
+{
+    "parent": "moisturization:block/sprinkler_off",
+    "textures": {
+        "top": "moisturization:block/sprinkler_top_on"
+    }
+}

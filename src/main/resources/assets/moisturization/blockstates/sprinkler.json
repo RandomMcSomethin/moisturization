@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "sprinkling=false": {
+      "model": "moisturization:block/sprinkler_off"
+    },
+    "sprinkling=true": {
+      "model": "moisturization:block/sprinkler_on"
+    }
+  }
+}

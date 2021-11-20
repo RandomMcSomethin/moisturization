@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.random.moisturization.mixin",
+  "compatibilityLevel": "JAVA_16",
+  "mixins": [
+    "FarmlandSaturationMixin",
+    "CropGrowthMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

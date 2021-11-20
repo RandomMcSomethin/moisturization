@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "moisturization",
+  "version": "${version}",
+  "name": "Moisturization",
+  "description": "Modifies how farmland works and adds sprinklers.",
+  "authors": [
+    "RandomMcSomethin"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/moisturization/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "com.random.moisturization.client.MoisturizationClient"
+    ],
+    "main": [
+      "com.random.moisturization.Moisturization"
+    ],
+    "modmenu": [
+      "com.random.moisturization.config.ModMenuIntegration"
+    ]
+  },
+  "mixins": [
+    "moisturization.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.12.5",
+    "fabric": "*",
+    "minecraft": "1.17.1"
+  }
+}
