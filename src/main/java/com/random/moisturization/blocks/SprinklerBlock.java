@@ -88,8 +88,7 @@ public class SprinklerBlock extends Block implements BlockEntityProvider {
         }
     }
 
-    protected static void spawnParticles(World world, BlockPos pos) {
-        radius = Moisturization.CONFIG.sprinklerRadius;
+    protected static void spawnParticles(World world, BlockPos pos, int radius) {
         double d = 30*radius/2;
         Random random = world.random;
         Direction[] var5 = Direction.values();

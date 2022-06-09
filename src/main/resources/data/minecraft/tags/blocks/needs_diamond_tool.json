@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "moisturization:sprinkler",
     "moisturization:netherite_sprinkler"
   ]
 }

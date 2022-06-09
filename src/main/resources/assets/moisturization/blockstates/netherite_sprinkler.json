@@ -1,0 +1,18 @@
+{
+  "variants": {
+    "facing=up,sprinkling=false": {
+      "model": "moisturization:block/netherite_sprinkler_off"
+    },
+    "facing=up,sprinkling=true": {
+      "model": "moisturization:block/netherite_sprinkler_on"
+    },
+    "facing=down,sprinkling=false": {
+      "model": "moisturization:block/netherite_sprinkler_off",
+      "x": 180
+    },
+    "facing=down,sprinkling=true": {
+      "model": "moisturization:block/netherite_sprinkler_on",
+      "x": 180
+    }
+  }
+}

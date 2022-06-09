@@ -40,4 +40,8 @@ public class MoisturizationConfig implements ConfigData {
     @ConfigEntry.BoundedDiscrete(max = 7, min = 1)
     public int sprinklerRadius = 2;
 
+    @ConfigEntry.Category("moisturization.general")
+    @ConfigEntry.Gui.Tooltip
+    @ConfigEntry.BoundedDiscrete(max = 7, min = 1)
+    public int netheriteSprinklerRadius  = 4;
 }

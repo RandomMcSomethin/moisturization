@@ -1,0 +1,6 @@
+{
+    "parent": "moisturization:block/netherite_sprinkler_off",
+    "textures": {
+        "top": "moisturization:block/netherite_sprinkler_top_on"
+    }
+}
