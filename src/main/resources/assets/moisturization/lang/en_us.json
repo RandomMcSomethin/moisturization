@@ -7,9 +7,11 @@
     "text.autoconfig.moisturization.option.growthReductor": "Growth Reduction",
     "text.autoconfig.moisturization.option.boneMealReductor": "Bone Meal Growth Reduction",
     "text.autoconfig.moisturization.option.farmlandDryingRate": "Farmland Drying Rate",
+    "text.autoconfig.moisturization.option.sprinklerRadius": "Sprinkler Radius",
     "text.autoconfig.moisturization.option.cropsDie.@Tooltip": "Crops die without water",
     "text.autoconfig.moisturization.option.waterRange.@Tooltip": "Water source range",
     "text.autoconfig.moisturization.option.growthReductor.@Tooltip": "Growth is randomly cancelled all but 1/[X] times",
     "text.autoconfig.moisturization.option.boneMealReductor.@Tooltip": "Growth is randomly cancelled all but 1/[X] times (0 for no bone meal growth at all)",
-    "text.autoconfig.moisturization.option.farmlandDryingRate.@Tooltip": "The percentage of the speed at which farmland dries out"
+    "text.autoconfig.moisturization.option.farmlandDryingRate.@Tooltip": "The percentage of the speed at which farmland dries out",
+    "text.autoconfig.moisturization.option.sprinklerRadius.@Tooltip": "Sprinklers affect things within this range"
 }

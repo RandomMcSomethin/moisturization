@@ -1,10 +1,18 @@
 {
   "variants": {
-    "sprinkling=false": {
+    "facing=up,sprinkling=false": {
       "model": "moisturization:block/sprinkler_off"
     },
-    "sprinkling=true": {
+    "facing=up,sprinkling=true": {
       "model": "moisturization:block/sprinkler_on"
+    },
+    "facing=down,sprinkling=false": {
+      "model": "moisturization:block/sprinkler_off",
+      "x": 180
+    },
+    "facing=down,sprinkling=true": {
+      "model": "moisturization:block/sprinkler_on",
+      "x": 180
     }
   }
 }

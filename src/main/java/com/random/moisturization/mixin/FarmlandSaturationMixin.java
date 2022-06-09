@@ -19,7 +19,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.Iterator;
-import java.util.Random;
+import net.minecraft.util.math.random.Random;
 
 import static com.random.moisturization.Moisturization.CONFIG;
 
@@ -64,7 +64,7 @@ public class FarmlandSaturationMixin {
         if (world.getBlockState(pos).get(FarmlandBlock.MOISTURE) > 0) ci.cancel();
     }
 
-    @Inject(at = @At("HEAD"), method = "randomTick(Lnet/minecraft/block/BlockState;Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/util/math/BlockPos;Ljava/util/Random;)V", cancellable = true)
+    @Inject(at = @At("HEAD"), method = "randomTick(Lnet/minecraft/block/BlockState;Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/math/random/Random;)V", cancellable = true)
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random, CallbackInfo ci) {
         int i = state.get(FarmlandBlock.MOISTURE);
         if (i > 0 && random.nextDouble() > ((double)(CONFIG.farmlandDryingRate))/100) ci.cancel();

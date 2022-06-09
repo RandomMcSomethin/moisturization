@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import static com.random.moisturization.Moisturization.CONFIG;
 
-import java.util.Random;
+import net.minecraft.util.math.random.Random;
 
 @Mixin(CropBlock.class)
 public class CropGrowthMixin {
@@ -27,7 +27,7 @@ public class CropGrowthMixin {
 		}
 	}
 
-	@Inject(at = @At("HEAD"), method = "randomTick(Lnet/minecraft/block/BlockState;Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/util/math/BlockPos;Ljava/util/Random;)V", cancellable = true)
+	@Inject(at = @At("HEAD"), method = "randomTick(Lnet/minecraft/block/BlockState;Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/math/random/Random;)V", cancellable = true)
 	public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random, CallbackInfo ci) {
 		if (CONFIG.cropsDie && world.getBlockState(pos.down()).get(FarmlandBlock.MOISTURE) < 1) world.setBlockState(pos, Blocks.DEAD_BUSH.getDefaultState());
 		if (world.getRandom().nextDouble() > 1.0/(float)CONFIG.growthReductor) {
