@@ -1,9 +1,7 @@
-package com.random.moisturization.mixin;
+package io.github.randommcsomethin.moisturization.mixin;
 
-import com.random.moisturization.Moisturization;
-import com.random.moisturization.blocks.SprinklerBlock;
-import com.random.moisturization.config.MoisturizationConfig;
-import me.shedaniel.autoconfig.AutoConfig;
+import io.github.randommcsomethin.moisturization.Moisturization;
+import io.github.randommcsomethin.moisturization.blocks.SprinklerBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.FarmlandBlock;
 import net.minecraft.entity.Entity;
@@ -21,7 +19,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.util.Iterator;
 import net.minecraft.util.math.random.Random;
 
-import static com.random.moisturization.Moisturization.CONFIG;
+import static io.github.randommcsomethin.moisturization.Moisturization.CONFIG;
 
 @Mixin(FarmlandBlock.class)
 public class FarmlandSaturationMixin {

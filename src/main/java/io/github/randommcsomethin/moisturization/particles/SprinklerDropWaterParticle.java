@@ -1,4 +1,4 @@
-package com.random.moisturization.particles;
+package io.github.randommcsomethin.moisturization.particles;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;

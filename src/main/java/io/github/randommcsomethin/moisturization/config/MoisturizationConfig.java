@@ -1,4 +1,4 @@
-package com.random.moisturization.config;
+package io.github.randommcsomethin.moisturization.config;
 
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;

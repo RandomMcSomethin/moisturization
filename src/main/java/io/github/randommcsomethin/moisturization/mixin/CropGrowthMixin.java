@@ -1,7 +1,5 @@
-package com.random.moisturization.mixin;
+package io.github.randommcsomethin.moisturization.mixin;
 
-import com.random.moisturization.config.MoisturizationConfig;
-import me.shedaniel.autoconfig.AutoConfig;
 import net.minecraft.block.*;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
@@ -10,7 +8,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import static com.random.moisturization.Moisturization.CONFIG;
+import static io.github.randommcsomethin.moisturization.Moisturization.CONFIG;
 
 import net.minecraft.util.math.random.Random;
 

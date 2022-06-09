@@ -1,10 +1,8 @@
-package com.random.moisturization.config;
+package io.github.randommcsomethin.moisturization.config;
 
 import com.terraformersmc.modmenu.api.ConfigScreenFactory;
 import com.terraformersmc.modmenu.api.ModMenuApi;
 import me.shedaniel.autoconfig.AutoConfig;
-
-import java.util.Optional;
 
 public class ModMenuIntegration implements ModMenuApi {
     @Override

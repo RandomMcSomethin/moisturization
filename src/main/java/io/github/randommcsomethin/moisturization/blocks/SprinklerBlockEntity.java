@@ -1,6 +1,6 @@
-package com.random.moisturization.blocks;
+package io.github.randommcsomethin.moisturization.blocks;
 
-import com.random.moisturization.Moisturization;
+import io.github.randommcsomethin.moisturization.Moisturization;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.FarmlandBlock;

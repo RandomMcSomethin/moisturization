@@ -1,6 +1,6 @@
-package com.random.moisturization.client;
+package io.github.randommcsomethin.moisturization.client;
 
-import com.random.moisturization.particles.SprinklerDropWaterParticle;
+import io.github.randommcsomethin.moisturization.particles.SprinklerDropWaterParticle;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;

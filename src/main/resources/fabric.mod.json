@@ -13,13 +13,13 @@
   "environment": "*",
   "entrypoints": {
     "client": [
-      "com.random.moisturization.client.MoisturizationClient"
+      "io.github.randommcsomethin.moisturization.client.MoisturizationClient"
     ],
     "main": [
-      "com.random.moisturization.Moisturization"
+      "io.github.randommcsomethin.moisturization.Moisturization"
     ],
     "modmenu": [
-      "com.random.moisturization.config.ModMenuIntegration"
+      "io.github.randommcsomethin.moisturization.config.ModMenuIntegration"
     ]
   },
   "mixins": [

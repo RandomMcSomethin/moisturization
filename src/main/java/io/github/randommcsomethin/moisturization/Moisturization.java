@@ -1,9 +1,9 @@
-package com.random.moisturization;
+package io.github.randommcsomethin.moisturization;
 
-import com.random.moisturization.blocks.NetheriteSprinklerBlock;
-import com.random.moisturization.blocks.SprinklerBlock;
-import com.random.moisturization.blocks.SprinklerBlockEntity;
-import com.random.moisturization.config.MoisturizationConfig;
+import io.github.randommcsomethin.moisturization.blocks.NetheriteSprinklerBlock;
+import io.github.randommcsomethin.moisturization.blocks.SprinklerBlock;
+import io.github.randommcsomethin.moisturization.blocks.SprinklerBlockEntity;
+import io.github.randommcsomethin.moisturization.config.MoisturizationConfig;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import net.fabricmc.api.ModInitializer;
