@@ -63,7 +63,9 @@ public class SprinklerBlockEntity extends BlockEntity {
                     );
                 }
             }
-            SprinklerBlock.spawnParticles(world, pos, radius);
+            if (world.isClient) {
+                SprinklerBlock.spawnParticles(world, pos, radius);
+            }
             for (int i = 0; i < 32; ++i) {
                 int j = 1;
                 if (blockState.get(SprinklerBlock.facing) == Direction.DOWN) j = 4;

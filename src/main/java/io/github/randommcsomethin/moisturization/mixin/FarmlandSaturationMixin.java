@@ -29,32 +29,40 @@ public class FarmlandSaturationMixin {
         // Water
         int water = CONFIG.waterRange;
 
-        Iterator var3 = BlockPos.iterate(pos.add(-water, 0, -water), pos.add(water, 1, water)).iterator();
-        BlockPos blockPos = new BlockPos(pos.add(-water, 0, -water));
-        Boolean hasWater = false;
+        // If set to vanilla, do nothing
+        if (water == 4) {
 
-        do {
-            if (world.getFluidState(blockPos).isIn(FluidTags.WATER)) {
-                hasWater = true;
-                cir.setReturnValue(true);
-            }
-            blockPos = (BlockPos)var3.next();
-        } while(var3.hasNext());
+        } else {
+            Iterator var3 = BlockPos.iterate(pos.add(-water, 0, -water), pos.add(water, 1, water)).iterator();
+            BlockPos blockPos = new BlockPos(pos.add(-water, 0, -water));
+            Boolean hasWater = false;
+
+            // Natural water range
+            do {
+                if (world.getFluidState(blockPos).isIn(FluidTags.WATER)) {
+                    hasWater = true;
+                    cir.setReturnValue(true);
+                }
+                blockPos = (BlockPos) var3.next();
+            } while (var3.hasNext());
 
 
-        // Sprinkler
-        Iterator var4 = BlockPos.iterate(pos.add(-3, 0, -3), pos.add(3, 1, 3)).iterator();
-        BlockPos blockPos2 = new BlockPos(pos.add(-3, 0, -3));
+            // Sprinkler (This code might not be neccesary?)
+            /*
+            Iterator var4 = BlockPos.iterate(pos.add(-3, 0, -3), pos.add(3, 1, 3)).iterator();
+            BlockPos blockPos2 = new BlockPos(pos.add(-3, 0, -3));
 
-        do {
-            if (world.getBlockState(blockPos2) == Moisturization.SPRINKLER.getDefaultState().with(SprinklerBlock.sprinkling, true)) {
-                hasWater = true;
-                cir.setReturnValue(true);
-            }
-            blockPos2 = (BlockPos)var4.next();
-        } while(var4.hasNext());
+            do {
+                if (world.getBlockState(blockPos2) == Moisturization.SPRINKLER.getDefaultState().with(SprinklerBlock.sprinkling, true)) {
+                    hasWater = true;
+                    cir.setReturnValue(true);
+                }
+                blockPos2 = (BlockPos) var4.next();
+            } while (var4.hasNext());
+            */
 
-        if (!hasWater) cir.setReturnValue(false);
+            if (!hasWater) cir.setReturnValue(false);
+        }
     }
 
     @Inject(at = @At("HEAD"), method = "onLandedUpon(Lnet/minecraft/world/World;Lnet/minecraft/block/BlockState;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/entity/Entity;F)V", cancellable = true)
