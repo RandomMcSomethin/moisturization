@@ -34,8 +34,15 @@ public class NetheriteSprinklerBlock extends SprinklerBlock {
         this.radius = 4;
     }
 
+    public int getRadius() {
+        return Moisturization.CONFIG.netheriteSprinklerRadius;
+    }
+
     @Override
     public void neighborUpdate(BlockState state, World world, BlockPos pos, Block block, BlockPos fromPos, boolean notify) {
+        super.neighborUpdate(state, world, pos, block, fromPos, notify);
+        // might not need this?
+        /*
         radius = Moisturization.CONFIG.netheriteSprinklerRadius;
         if (!world.isClient) {
             // obstruction check
@@ -61,6 +68,7 @@ public class NetheriteSprinklerBlock extends SprinklerBlock {
                 world.setBlockState(pos, state.with(sprinkling, false).with(activated, false));
             }
         }
+        */
     }
 
     @Nullable

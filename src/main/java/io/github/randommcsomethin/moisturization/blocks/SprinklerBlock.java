@@ -2,6 +2,9 @@ package io.github.randommcsomethin.moisturization.blocks;
 
 import io.github.randommcsomethin.moisturization.Moisturization;
 import io.github.randommcsomethin.moisturization.client.MoisturizationClient;
+import io.github.randommcsomethin.moisturization.compat.CopperPipesCompat;
+import net.fabricmc.loader.api.FabricLoader;
+import net.lunade.copper.blocks.CopperPipeProperties;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockState;
@@ -19,6 +22,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+import net.lunade.copper.leaking_pipes.LeakingPipeManager;
 
 import net.minecraft.util.math.random.Random;
 
@@ -60,8 +64,12 @@ public class SprinklerBlock extends Block implements BlockEntityProvider {
         world.setBlockState(pos, state.with(sprinkling, false).with(activated, false));
     }
 
+    public int getRadius() {
+        return Moisturization.CONFIG.sprinklerRadius;
+    }
+
     public void neighborUpdate(BlockState state, World world, BlockPos pos, Block block, BlockPos fromPos, boolean notify) {
-        radius = Moisturization.CONFIG.sprinklerRadius;
+        radius = getRadius();
         if (!world.isClient) {
             // obstruction check
             boolean obstructed = false;
@@ -84,6 +92,14 @@ public class SprinklerBlock extends Block implements BlockEntityProvider {
             // but not when obstructed
             if (obstructed) {
                 world.setBlockState(pos, state.with(sprinkling, false).with(activated, false));
+            }
+            // Simple Copper Pipes compatibility:
+            if (FabricLoader.getInstance().isModLoaded("copper_pipe")) {
+                BlockState pipe = CopperPipesCompat.getConnectedPipe(world, pos);
+                // only sprinkle if connected to a filled pipe
+                if (pipe == null || !pipe.get(CopperPipeProperties.HAS_WATER)) {
+                    world.setBlockState(pos, state.with(sprinkling, false).with(activated, false));
+                }
             }
         }
     }

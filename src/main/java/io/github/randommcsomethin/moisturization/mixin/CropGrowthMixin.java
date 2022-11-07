@@ -27,7 +27,14 @@ public class CropGrowthMixin {
 
 	@Inject(at = @At("HEAD"), method = "randomTick(Lnet/minecraft/block/BlockState;Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/math/random/Random;)V", cancellable = true)
 	public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random, CallbackInfo ci) {
-		if (CONFIG.cropsDie && world.getBlockState(pos.down()).get(FarmlandBlock.MOISTURE) < 1) world.setBlockState(pos, Blocks.DEAD_BUSH.getDefaultState());
+		// Dying crops
+		if (CONFIG.cropsDie) {
+			// make crops die on dry farmland
+			BlockState farmland = world.getBlockState(pos.down());
+			if (farmland.getBlock() instanceof FarmlandBlock && farmland.get(FarmlandBlock.MOISTURE) < 1)
+				world.setBlockState(pos, Blocks.DEAD_BUSH.getDefaultState());
+		}
+		// Reduce crop growth
 		if (world.getRandom().nextDouble() > 1.0/(float)CONFIG.growthReductor) {
 			ci.cancel();
 		}

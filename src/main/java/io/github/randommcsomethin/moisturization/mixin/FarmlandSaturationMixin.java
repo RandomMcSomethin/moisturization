@@ -2,6 +2,8 @@ package io.github.randommcsomethin.moisturization.mixin;
 
 import io.github.randommcsomethin.moisturization.Moisturization;
 import io.github.randommcsomethin.moisturization.blocks.SprinklerBlock;
+import net.fabricmc.loader.api.FabricLoader;
+import net.lunade.copper.leaking_pipes.LeakingPipeManager;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.FarmlandBlock;
 import net.minecraft.entity.Entity;
@@ -21,7 +23,7 @@ import net.minecraft.util.math.random.Random;
 
 import static io.github.randommcsomethin.moisturization.Moisturization.CONFIG;
 
-@Mixin(FarmlandBlock.class)
+@Mixin(value = FarmlandBlock.class, priority = 500)
 public class FarmlandSaturationMixin {
 
     @Inject(at = @At("HEAD"), method = "isWaterNearby(Lnet/minecraft/world/WorldView;Lnet/minecraft/util/math/BlockPos;)Z", cancellable = true)
@@ -46,20 +48,12 @@ public class FarmlandSaturationMixin {
                 blockPos = (BlockPos) var3.next();
             } while (var3.hasNext());
 
-
-            // Sprinkler (This code might not be neccesary?)
-            /*
-            Iterator var4 = BlockPos.iterate(pos.add(-3, 0, -3), pos.add(3, 1, 3)).iterator();
-            BlockPos blockPos2 = new BlockPos(pos.add(-3, 0, -3));
-
-            do {
-                if (world.getBlockState(blockPos2) == Moisturization.SPRINKLER.getDefaultState().with(SprinklerBlock.sprinkling, true)) {
-                    hasWater = true;
-                    cir.setReturnValue(true);
-                }
-                blockPos2 = (BlockPos) var4.next();
-            } while (var4.hasNext());
-            */
+            // Simple Copper Pipes compatibility:
+            if (FabricLoader.getInstance().isModLoaded("copper_pipe") &&
+                    LeakingPipeManager.isWaterPipeNearbyBlockGetter(world, pos, water + 2)) {
+                hasWater = true;
+                cir.setReturnValue(true);
+            }
 
             if (!hasWater) cir.setReturnValue(false);
         }
