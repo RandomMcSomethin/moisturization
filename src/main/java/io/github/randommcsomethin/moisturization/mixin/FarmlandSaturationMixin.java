@@ -2,6 +2,7 @@ package io.github.randommcsomethin.moisturization.mixin;
 
 import io.github.randommcsomethin.moisturization.Moisturization;
 import io.github.randommcsomethin.moisturization.blocks.SprinklerBlock;
+import io.github.randommcsomethin.moisturization.compat.CopperPipesCompat;
 import net.fabricmc.loader.api.FabricLoader;
 import net.lunade.copper.leaking_pipes.LeakingPipeManager;
 import net.minecraft.block.BlockState;
@@ -49,10 +50,11 @@ public class FarmlandSaturationMixin {
             } while (var3.hasNext());
 
             // Simple Copper Pipes compatibility:
-            if (FabricLoader.getInstance().isModLoaded("copper_pipe") &&
-                    LeakingPipeManager.isWaterPipeNearbyBlockGetter(world, pos, water + 2)) {
-                hasWater = true;
-                cir.setReturnValue(true);
+            if (FabricLoader.getInstance().isModLoaded("copper_pipe")) {
+                if (CopperPipesCompat.moistenFarmlandUnderPipes(world, pos, water + 2)) {
+                    hasWater = true;
+                    cir.setReturnValue(true);
+                }
             }
 
             if (!hasWater) cir.setReturnValue(false);
