@@ -1,7 +1,6 @@
 package io.github.randommcsomethin.moisturization.compat;
 
 import net.lunade.copper.blocks.CopperPipe;
-import net.lunade.copper.blocks.CopperPipeProperties;
 import net.lunade.copper.leaking_pipes.LeakingPipeManager;
 import net.minecraft.block.BlockState;
 import net.minecraft.state.property.Properties;

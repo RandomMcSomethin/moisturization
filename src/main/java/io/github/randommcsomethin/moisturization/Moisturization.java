@@ -5,6 +5,7 @@ import io.github.randommcsomethin.moisturization.blocks.SprinklerBlock;
 import io.github.randommcsomethin.moisturization.blocks.SprinklerBlockEntity;
 import io.github.randommcsomethin.moisturization.config.MoisturizationConfig;
 import io.github.randommcsomethin.moisturization.events.TillBlockCallback;
+import io.github.randommcsomethin.moisturization.util.FarmlandManager;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import net.fabricmc.api.ModInitializer;
@@ -49,29 +50,10 @@ public class Moisturization implements ModInitializer {
         {
             BlockState state = world.getBlockState(pos);
             Block bl = state.getBlock();
-            if (bl instanceof FarmlandBlock && waterNearby(world, pos)) {
+            if (bl instanceof FarmlandBlock && FarmlandManager.checkForWater(world, pos)) {
                 world.setBlockState(pos, state.with(FarmlandBlock.MOISTURE, FarmlandBlock.MAX_MOISTURE));
             }
             return ActionResult.PASS;
         });
-    }
-
-    private static boolean waterNearby(WorldView world, BlockPos pos) {
-        // Water
-        int water = CONFIG.waterRange;
-        Boolean hasWater = false;
-
-        Iterator var3 = BlockPos.iterate(pos.add(-water, 0, -water), pos.add(water, 1, water)).iterator();
-        BlockPos blockPos = new BlockPos(pos.add(-water, 0, -water));
-
-        // Natural water range
-        do {
-            if (world.getFluidState(blockPos).isIn(FluidTags.WATER)) {
-                hasWater = true;
-            }
-            blockPos = (BlockPos) var3.next();
-        } while (var3.hasNext());
-
-        return hasWater;
     }
 }

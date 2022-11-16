@@ -3,6 +3,7 @@ package io.github.randommcsomethin.moisturization.mixin;
 import io.github.randommcsomethin.moisturization.Moisturization;
 import io.github.randommcsomethin.moisturization.blocks.SprinklerBlock;
 import io.github.randommcsomethin.moisturization.compat.CopperPipesCompat;
+import io.github.randommcsomethin.moisturization.util.FarmlandManager;
 import net.fabricmc.loader.api.FabricLoader;
 import net.lunade.copper.leaking_pipes.LeakingPipeManager;
 import net.minecraft.block.BlockState;
@@ -29,36 +30,8 @@ public class FarmlandSaturationMixin {
 
     @Inject(at = @At("HEAD"), method = "isWaterNearby(Lnet/minecraft/world/WorldView;Lnet/minecraft/util/math/BlockPos;)Z", cancellable = true)
     private static void isWaterNearby(WorldView world, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
-        // Water
-        int water = CONFIG.waterRange;
-
-        // If set to vanilla, do nothing
-        if (water == 4) {
-
-        } else {
-            Iterator var3 = BlockPos.iterate(pos.add(-water, 0, -water), pos.add(water, 1, water)).iterator();
-            BlockPos blockPos = new BlockPos(pos.add(-water, 0, -water));
-            Boolean hasWater = false;
-
-            // Natural water range
-            do {
-                if (world.getFluidState(blockPos).isIn(FluidTags.WATER)) {
-                    hasWater = true;
-                    cir.setReturnValue(true);
-                }
-                blockPos = (BlockPos) var3.next();
-            } while (var3.hasNext());
-
-            // Simple Copper Pipes compatibility:
-            if (FabricLoader.getInstance().isModLoaded("copper_pipe")) {
-                if (CopperPipesCompat.moistenFarmlandUnderPipes(world, pos, water + 2)) {
-                    hasWater = true;
-                    cir.setReturnValue(true);
-                }
-            }
-
-            if (!hasWater) cir.setReturnValue(false);
-        }
+        if (CONFIG.waterRange != 4)
+            cir.setReturnValue(FarmlandManager.checkForWater(world, pos));
     }
 
     @Inject(at = @At("HEAD"), method = "onLandedUpon(Lnet/minecraft/world/World;Lnet/minecraft/block/BlockState;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/entity/Entity;F)V", cancellable = true)

@@ -30,6 +30,7 @@ dependencies {
     }
     modRuntimeOnly "com.terraformersmc:modmenu:4.0.0"
     modCompileOnly "maven.modrinth:simple-copper-pipes:1.11.3"
+    modRuntimeOnly "maven.modrinth:simple-copper-pipes:1.11.3"
 }
 
 processResources {

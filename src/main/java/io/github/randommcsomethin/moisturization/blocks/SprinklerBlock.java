@@ -26,6 +26,8 @@ import net.lunade.copper.leaking_pipes.LeakingPipeManager;
 
 import net.minecraft.util.math.random.Random;
 
+import static io.github.randommcsomethin.moisturization.Moisturization.CONFIG;
+
 public class SprinklerBlock extends Block implements BlockEntityProvider {
 
     public static final BooleanProperty sprinkling = BooleanProperty.of("sprinkling");
@@ -94,7 +96,8 @@ public class SprinklerBlock extends Block implements BlockEntityProvider {
                 world.setBlockState(pos, state.with(sprinkling, false).with(activated, false));
             }
             // Simple Copper Pipes compatibility:
-            if (FabricLoader.getInstance().isModLoaded("copper_pipe")) {
+            if (FabricLoader.getInstance().isModLoaded("copper_pipe") &&
+                    CONFIG.sprinklersNeedWater) {
                 BlockState pipe = CopperPipesCompat.getConnectedPipe(world, pos);
                 // only sprinkle if connected to a filled pipe
                 if (pipe == null || !pipe.get(CopperPipeProperties.HAS_WATER)) {
