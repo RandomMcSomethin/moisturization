@@ -37,6 +37,11 @@ public class MoisturizationConfig implements ConfigData {
 
     @ConfigEntry.Category("moisturization.general")
     @ConfigEntry.Gui.Tooltip
+    @ConfigEntry.BoundedDiscrete(max = 30, min = 0)
+    public int sprinklerActivationTime = 15;
+
+    @ConfigEntry.Category("moisturization.general")
+    @ConfigEntry.Gui.Tooltip
     @ConfigEntry.BoundedDiscrete(max = 7, min = 1)
     public int sprinklerRadius = 2;
 

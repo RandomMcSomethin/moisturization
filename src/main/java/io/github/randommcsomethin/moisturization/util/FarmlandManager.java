@@ -2,7 +2,7 @@ package io.github.randommcsomethin.moisturization.util;
 
 import io.github.randommcsomethin.moisturization.compat.CopperPipesCompat;
 import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.tag.FluidTags;
+import net.minecraft.registry.tag.FluidTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.WorldView;
 

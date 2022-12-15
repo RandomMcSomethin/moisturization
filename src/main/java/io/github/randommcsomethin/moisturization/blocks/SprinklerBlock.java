@@ -64,6 +64,7 @@ public class SprinklerBlock extends Block implements BlockEntityProvider {
     public void onPlaced(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack itemStack) {
         super.onPlaced(world, pos, state, placer, itemStack);
         world.setBlockState(pos, state.with(sprinkling, false).with(activated, false));
+        updateSprinkler(state, world, pos);
     }
 
     public int getRadius() {
@@ -71,6 +72,11 @@ public class SprinklerBlock extends Block implements BlockEntityProvider {
     }
 
     public void neighborUpdate(BlockState state, World world, BlockPos pos, Block block, BlockPos fromPos, boolean notify) {
+        updateSprinkler(state, world, pos);
+    }
+
+    // update sprinkler
+    private void updateSprinkler(BlockState state, World world, BlockPos pos) {
         radius = getRadius();
         if (!world.isClient) {
             // obstruction check
@@ -86,10 +92,18 @@ public class SprinklerBlock extends Block implements BlockEntityProvider {
             if (world.isReceivingRedstonePower(pos) && !obstructed) {
                 if (!state.get(activated)) {
                     world.setBlockState(pos, state.with(sprinkling, true).with(activated, true), 2);
-                    world.createAndScheduleBlockTick(pos, this, 300);
+                    if (Moisturization.CONFIG.sprinklerActivationTime > 0) {
+                        world.scheduleBlockTick(pos, this, Moisturization.CONFIG.sprinklerActivationTime*20);
+                    } else {
+                        world.setBlockState(pos, state.with(sprinkling, true).with(activated, true), 2);
+                    }
                 }
             } else {
-                world.setBlockState(pos, state.with(sprinkling, state.get(sprinkling)).with(activated, false));
+                if (Moisturization.CONFIG.sprinklerActivationTime > 0) {
+                    world.setBlockState(pos, state.with(sprinkling, state.get(sprinkling)).with(activated, false));
+                } else {
+                    world.setBlockState(pos, state.with(sprinkling, false).with(activated, false), 2);
+                }
             }
             // but not when obstructed
             if (obstructed) {

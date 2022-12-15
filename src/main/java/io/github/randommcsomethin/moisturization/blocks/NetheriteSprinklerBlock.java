@@ -41,34 +41,6 @@ public class NetheriteSprinklerBlock extends SprinklerBlock {
     @Override
     public void neighborUpdate(BlockState state, World world, BlockPos pos, Block block, BlockPos fromPos, boolean notify) {
         super.neighborUpdate(state, world, pos, block, fromPos, notify);
-        // might not need this?
-        /*
-        radius = Moisturization.CONFIG.netheriteSprinklerRadius;
-        if (!world.isClient) {
-            // obstruction check
-            boolean obstructed = false;
-            if (state.get(facing) == Direction.UP) {
-                if (!world.getBlockState(pos.up()).isAir())
-                    obstructed = true;
-            } else {
-                if (!world.getBlockState(pos.down()).isAir())
-                    obstructed = true;
-            }
-            // activation
-            if (world.isReceivingRedstonePower(pos) && !obstructed) {
-                if (!state.get(activated)) {
-                    world.setBlockState(pos, state.with(sprinkling, true).with(activated, true), 2);
-                    world.createAndScheduleBlockTick(pos, this, 300);
-                }
-            } else {
-                world.setBlockState(pos, state.with(sprinkling, state.get(sprinkling)).with(activated, false));
-            }
-            // but not when obstructed
-            if (obstructed) {
-                world.setBlockState(pos, state.with(sprinkling, false).with(activated, false));
-            }
-        }
-        */
     }
 
     @Nullable

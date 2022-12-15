@@ -25,12 +25,13 @@ dependencies {
     // PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
     // You may need to force-disable transitiveness on them.
 
-    modApi("me.shedaniel.cloth:cloth-config-fabric:7.0.65") {
+    modApi("me.shedaniel.cloth:cloth-config-fabric:9.0.94") {
         exclude(group: "net.fabricmc.fabric-api")
     }
-    modRuntimeOnly "com.terraformersmc:modmenu:4.0.0"
-    modCompileOnly "maven.modrinth:simple-copper-pipes:1.11.3"
-    modRuntimeOnly "maven.modrinth:simple-copper-pipes:1.11.3"
+    modImplementation "com.terraformersmc:modmenu:5.0.1"
+
+    modCompileOnly "maven.modrinth:simple-copper-pipes:1.11.4-1.19.3"
+    modRuntimeOnly "maven.modrinth:simple-copper-pipes:1.11.4-1.19.3"
 }
 
 processResources {
