@@ -1,6 +1,12 @@
 {
+    "block.moisturization.composter": "Composter",
     "block.moisturization.sprinkler": "Sprinkler",
     "block.moisturization.netherite_sprinkler": "Netherite Sprinkler",
+    "block.moisturization.soil": "Soil",
+
+    "item.moisturization.kelp_meal": "Kelp Meal",
+    "item.moisturization.plant_meal": "Plant Meal",
+    "item.moisturization.compost": "Compost",
 
     "text.autoconfig.moisturization.title": "Moisturization Options",
     "text.autoconfig.moisturization.category.moisturization.general": "General",

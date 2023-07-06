@@ -4,9 +4,13 @@
   "package": "io.github.randommcsomethin.moisturization.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "FarmlandSaturationMixin",
+    "BeetrootsMixin",
+    "BlockMixin",
+    "BoneMealMixin",
     "CropGrowthMixin",
-    "HoeMixin"
+    "FarmlandSaturationMixin",
+    "HoeMixin",
+    "ItemMixin"
   ],
   "client": [
   ],

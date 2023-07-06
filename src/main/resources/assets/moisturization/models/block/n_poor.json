@@ -1,0 +1,6 @@
+{
+    "parent": "moisturization:block/template_farmland_overlay",
+    "textures": {
+        "top": "moisturization:block/n_poor"
+    }
+}

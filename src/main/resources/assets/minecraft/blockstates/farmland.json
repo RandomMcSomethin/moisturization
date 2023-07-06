@@ -1,28 +1,68 @@
 {
-  "variants": {
-    "moisture=0": {
-      "model": "minecraft:block/farmland"
+  "multipart": [
+    {
+      "apply": {
+        "model": "minecraft:block/farmland"
+      },
+      "when": {
+        "moisture": "0"
+      }
     },
-    "moisture=1": {
-      "model": "minecraft:block/farmland1"
+    {
+      "apply": {
+        "model": "minecraft:block/farmland1"
+      },
+      "when": {
+        "moisture": "1"
+      }
     },
-    "moisture=2": {
-      "model": "minecraft:block/farmland2"
+    {
+      "apply": {
+        "model": "minecraft:block/farmland2"
+      },
+      "when": {
+        "moisture": "2"
+      }
     },
-    "moisture=3": {
-      "model": "minecraft:block/farmland3"
+    {
+      "apply": {
+        "model": "minecraft:block/farmland3"
+      },
+      "when": {
+        "moisture": "3"
+      }
     },
-    "moisture=4": {
-      "model": "minecraft:block/farmland4"
+    {
+      "apply": {
+        "model": "minecraft:block/farmland4"
+      },
+      "when": {
+        "moisture": "4"
+      }
     },
-    "moisture=5": {
-      "model": "minecraft:block/farmland5"
+    {
+      "apply": {
+        "model": "minecraft:block/farmland5"
+      },
+      "when": {
+        "moisture": "5"
+      }
     },
-    "moisture=6": {
-      "model": "minecraft:block/farmland6"
+    {
+      "apply": {
+        "model": "minecraft:block/farmland6"
+      },
+      "when": {
+        "moisture": "6"
+      }
     },
-    "moisture=7": {
-      "model": "minecraft:block/farmland_moist"
+    {
+      "apply": {
+        "model": "minecraft:block/farmland_moist"
+      },
+      "when": {
+        "moisture": "7"
+      }
     }
-  }
+  ]
 }

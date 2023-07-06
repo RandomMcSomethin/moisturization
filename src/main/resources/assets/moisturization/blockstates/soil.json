@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "moisturization:block/soil"
+      },
+      {
+        "model": "moisturization:block/soil",
+        "y": 90
+      },
+      {
+        "model": "moisturization:block/soil",
+        "y": 180
+      },
+      {
+        "model": "moisturization:block/soil",
+        "y": 270
+      }
+    ]
+  }
+}
