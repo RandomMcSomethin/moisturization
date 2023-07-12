@@ -50,10 +50,6 @@ public class MoisturizationConfig implements ConfigData {
     @ConfigEntry.BoundedDiscrete(max = 7, min = 1)
     public int netheriteSprinklerRadius  = 4;
 
-    @ConfigEntry.Category("moisturization.fertilization")
-    @ConfigEntry.Gui.Tooltip
-    public boolean fertilization = true;
-
     @ConfigEntry.Category("moisturization.simple_copper_pipes_compat")
     @ConfigEntry.Gui.Tooltip
     @ConfigEntry.BoundedDiscrete(max = 7, min = 0)
