@@ -8,6 +8,7 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.damage.DamageSources;
 import net.minecraft.entity.passive.BeeEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.sound.SoundCategory;
@@ -88,7 +89,7 @@ public class SprinklerBlockEntity extends BlockEntity {
             for (Entity e: world.getEntitiesByClass(Entity.class, range, entity -> true)) {
                 // hurt water-vulnerable mobs
                 if (e instanceof LivingEntity && (((LivingEntity) e).hurtByWater() || e instanceof BeeEntity)) {
-                    e.damage(DamageSource.DROWN, 1.0F);
+                    e.damage(world.getDamageSources().drown(), 1.0F);
                 }
                 // extinguish entities
                 if (e.getFireTicks() > 0) {

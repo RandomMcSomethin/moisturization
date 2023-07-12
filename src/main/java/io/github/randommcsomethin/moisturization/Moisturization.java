@@ -29,8 +29,8 @@ import java.util.Iterator;
 
 public class Moisturization implements ModInitializer {
 
-    public static final Block SPRINKLER = new SprinklerBlock(FabricBlockSettings.of(Material.METAL).requiresTool().strength(2.0f).sounds(BlockSoundGroup.COPPER));
-    public static final Block NETHERITE_SPRINKLER = new NetheriteSprinklerBlock(FabricBlockSettings.of(Material.METAL).requiresTool().strength(50.0F, 1200.0F).sounds(BlockSoundGroup.NETHERITE));
+    public static final Block SPRINKLER = new SprinklerBlock(FabricBlockSettings.create().mapColor(MapColor.ORANGE).requiresTool().strength(2.0f).sounds(BlockSoundGroup.COPPER));
+    public static final Block NETHERITE_SPRINKLER = new NetheriteSprinklerBlock(FabricBlockSettings.create().mapColor(MapColor.DEEPSLATE_GRAY).requiresTool().strength(50.0F, 1200.0F).sounds(BlockSoundGroup.NETHERITE));
     public static BlockEntityType<SprinklerBlockEntity> SPRINKLER_ENTITY;
     //public static BlockEntityType<NetheriteSprinklerBlockEntity> NETHERITE_SPRINKLER_ENTITY;
 
